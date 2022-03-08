@@ -13,18 +13,18 @@ TOKEN = os.environ["TOKEN"]
 
 def start(update, context):
     update.message.reply_text("""Відправте свою скаргу
-    Отправьте свою жалобу""")
+Отправьте свою жалобу""")
 
 
 def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text("""Використайте команду /compaint щоб відправити скаргу
-    Используйте комманду /complaint чтоб отправить жалобу""")
+Используйте комманду /complaint чтоб отправить жалобу""")
 
 
 def receiveComplaint(update, context):
     update.message.reply_text("""Ваша скарга прийнята
-    Ваша жалоба принята""")
+Ваша жалоба принята""")
     update.message.forward(chat_id='@workingrightsbotchannel')
     context.bot.send_message(chat_id='@workingrightsbotchannel', text=update.message.from_user)
     logging.warning("Forwarded from %s", update.message.forward_from_chat)
