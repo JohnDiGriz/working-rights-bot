@@ -10,6 +10,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 TOKEN = os.environ["TOKEN"]
+CHAT = os.environ["CHAT"]
 
 
 def start(update, context):
@@ -25,8 +26,8 @@ def help(update, context):
 def receive_complaint(update, context):
     update.message.reply_text("""Ваша скарга прийнята
 Ваша жалоба принята""")
-    update.message.forward(chat_id=-1001773404147)
-    context.bot.send_message(chat_id=-1001773404147, text="@"+update.message.from_user.username)
+    update.message.forward(chat_id=CHAT)
+    context.bot.send_message(chat_id=CHAT, text="@"+update.message.from_user.username)
 
 
 def error(update, context):
