@@ -26,7 +26,7 @@ def receiveComplaint(update, context):
     update.message.reply_text("""Ваша скарга прийнята
 Ваша жалоба принята""")
     update.message.forward(chat_id='@workingrightsbotchannel')
-    context.bot.send_message(chat_id='@workingrightsbotchannel', text=update.message.from_user)
+    context.bot.send_message(chat_id='@workingrightsbotchannel', text=update.message.from_user.username)
     logging.warning("Forwarded from %s", update.message.forward_from_chat)
 
 
