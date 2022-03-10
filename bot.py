@@ -14,18 +14,12 @@ CHAT = os.environ["CHAT"]
 
 
 def start(update, context):
-    update.message.reply_text("""Відправте свою скаргу
-Отправьте свою жалобу""")
+    update.message.reply_text("""Відправте своє звернення""")
 
-
-def help(update, context):
-    update.message.reply_text("""Використайте команду /compaint щоб відправити скаргу
-Используйте комманду /complaint чтоб отправить жалобу""")
 
 
 def receive_complaint(update, context):
-    update.message.reply_text("""Ваша скарга прийнята
-Ваша жалоба принята""")
+    update.message.reply_text("""Ваше звернення прийняте""")
     update.message.forward(chat_id=CHAT)
     context.bot.send_message(chat_id=CHAT, text="@"+update.message.from_user.username)
 
@@ -40,8 +34,6 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("complaint", start))
-    dp.add_handler(CommandHandler("help", help))
 
     dp.add_handler(MessageHandler(Filters.text, receive_complaint))
 
