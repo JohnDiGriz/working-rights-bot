@@ -86,7 +86,7 @@ def start(update, context):
 def receive_complaint(update, context):
     if basic_responses.has_key(update.message.text):
       update.message.reply_text(basic_responses[update.message.text], parse_mode=ParseMode.MARKDOWN_V2)
-    else
+    else:
       update.message.reply_text("""Ваше звернення прийняте""")
       update.message.forward(chat_id=CHAT)
       context.bot.send_message(chat_id=CHAT, text="@"+update.message.from_user.username)
