@@ -85,7 +85,7 @@ def start(update, context):
 
 def receive_complaint(update, context):
     if update.message.text in basic_responses:
-      update.message.reply_text(basic_responses[update.message.text], parse_mode=ParseMode.MARKDOWN_V2)
+      update.message.reply_text(basic_responses[update.message.text], parse_mode=ParseMode.HTML)
     else:
       update.message.reply_text("""Ваше звернення прийняте""")
       update.message.forward(chat_id=CHAT)
